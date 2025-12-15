@@ -75,85 +75,53 @@ mvn spring-boot:run
 ```
 
 3. **Open the application in a browser**
-
-User login: ```http://localhost:8080/login.html```
-
-User register:``` http://localhost:8080/register.html```
-
-User dashboard: ```http://localhost:8080/dashboard.html```
-
-Admin dashboard: ```http://localhost:8080/admin-dashboard.html```
-
-H2 console (optional): ```http://localhost:8080/h2-console```
-
-JDBC URL: ```jdbc:h2:mem:testdb```
-
-Username: ```sa```
-
-Password: (leave empty)
-
+- User login: ```http://localhost:8080/login.html```
+- User register:``` http://localhost:8080/register.html```
+- User dashboard: ```http://localhost:8080/dashboard.html```
+- Admin dashboard: ```http://localhost:8080/admin-dashboard.html```
+- H2 console (optional): ```http://localhost:8080/h2-console```
+- JDBC URL: ```jdbc:h2:mem:testdb```
+- Username: ```sa```
+- Password: (leave empty)
+  
 ### Usage Flow
 
 1. **User**
+- Register or login
+- Submit complaints
+- View and clear complaints
 
-Register or login
-
-Submit complaints
-
-View and clear complaints
-
-2. **Admin**
-
-Login using admin credentials
-
-View all complaints
-
-Assign complaints to IT users
-
-Update status (IN_PROGRESS, RESOLVED, REJECTED)
-
-Clear complaints
+3. **Admin**
+- Login using admin credentials
+- View all complaints
+- Assign complaints to IT users
+- Update status (IN_PROGRESS, RESOLVED, REJECTED)
+- Clear complaints
 
 3. **IT**
-
-Login using IT credentials
-
-View assigned complaints
-
-Update status
+- Login using IT credentials
+- View assigned complaints
+- Update status
 
 ### Database
 
-H2 Database is used for simplicity (in-memory DB by default).
-
-Tables: ```users```, ```complaints```.
-
-Predefined roles: USER, ADMIN, IT.
-
-You can add IT users directly in the DB via H2 console or registration endpoint.
+- H2 Database is used for simplicity (in-memory DB by default).
+- Tables: ```users```, ```complaints```.
+- Predefined roles: USER, ADMIN, IT.
+- You can add IT users directly in the DB via H2 console or registration endpoint.
 
 ### API Endpoints
 **AuthController**
-
-```POST /api/auth/register``` – Register a new user
-
-```POST /api/auth/login``` – Login user/admin/IT
+- ```POST /api/auth/register``` – Register a new user
+- ```POST /api/auth/login``` – Login user/admin/IT
 
 **ComplaintController**
-
-```POST /api/complaints/submit ```– Submit complaint
-
-```GET /api/complaints/user?username=``` – View user complaints
-
-```POST /api/complaints/clear?complaintId=``` – Clear a complaint
+- ```POST /api/complaints/submit ```– Submit complaint
+- ```GET /api/complaints/user?username=``` – View user complaints
+- ```POST /api/complaints/clear?complaintId=``` – Clear a complaint
 
 **AdminController**
-
-```GET /api/admin/complaints``` – View all complaints
-
-```POST /api/admin/assign?complaintId=&itUsername=``` – Assign complaint to IT
-
-```POST /api/admin/updateStatus?complaintId=&status=``` – Update complaint status
-
-```GET /api/admin/complaints/assigned?username=``` – View complaints assigned to specific IT
-
+- ```GET /api/admin/complaints``` – View all complaints
+- ```POST /api/admin/assign?complaintId=&itUsername=``` – Assign complaint to IT
+- ```POST /api/admin/updateStatus?complaintId=&status=``` – Update complaint status
+- ```GET /api/admin/complaints/assigned?username=``` – View complaints assigned to specific IT
