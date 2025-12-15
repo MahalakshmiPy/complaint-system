@@ -32,23 +32,6 @@ The system allows **Users** to submit complaints, **Admins** to manage and assig
 - **Build Tool:** Maven
 
 ---
-
-## Project Structure
-
-complaint-system/
-│
-├── src/main/java/com/example/complainSystem/
-│ ├── controller/ # AuthController, AdminController, ComplaintController
-│ ├── model/ # User, Complaint
-│ └── repository/ # UserRepository, ComplaintRepository
-│
-├── src/main/resources/
-│ ├── static/ # HTML, CSS, JS files
-│ └── application.properties
-│
-├── pom.xml
-└── README.md
-
 ## Setup & Run Locally
 
 ### Prerequisites
