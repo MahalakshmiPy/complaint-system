@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login - Complaint System</title>
+    <style>
+        body { background-color: #121212; color: white; font-family: Arial, sans-serif; }
+        .container { max-width: 400px; margin: 50px auto; }
+        input, button { width: 100%; margin: 5px 0; padding: 10px; }
+        .error { color: red; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Login</h1>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+
+    <button onclick="login()">Login</button>
+
+    <p id="message" class="error"></p>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+### Register User
+POST https://jubilant-garbanzo-r4rr96r99pr4fx794-8080.app.github.dev/api/auth/register
+Content-Type: application/x-www-form-urlencoded
+
+username=user1&password=pass123&role=USER
+
+### Register Admin
+POST https://jubilant-garbanzo-r4rr96r99pr4fx794-8080.app.github.dev/api/auth/register
+Content-Type: application/x-www-form-urlencoded
+
+username=admin1&password=admin123&role=ADMIN
+
+### Register IT
+POST https://jubilant-garbanzo-r4rr96r99pr4fx794-8080.app.github.dev/api/auth/register
+Content-Type: application/x-www-form-urlencoded
+
+username=it1&password=it123&role=IT
+
+### Login User
+POST https://jubilant-garbanzo-r4rr96r99pr4fx794-8080.app.github.dev/api/auth/login
+Content-Type: application/x-www-form-urlencoded
+
+username=user1&password=pass123
+
+### Submit Complaint
+POST https://jubilant-garbanzo-r4rr96r99pr4fx794-8080.app.github.dev/api/complaints/submit
+Content-Type: application/x-www-form-urlencoded
+
+username=user1&category=Service&description=Internet not working
+
+### View User Complaints
+GET https://jubilant-garbanzo-r4rr96r99pr4fx794-8080.app.github.dev/api/complaints/user?username=user1
+
+### Update Complaint Status (Admin assigns to IT)
+POST https://jubilant-garbanzo-r4rr96r99pr4fx794-8080.app.github.dev/api/complaints/update
+Content-Type: application/x-www-form-urlencoded
+
+complaintId=1&status=In Progress&assignedToUsername=it1
+
+### View Assigned Complaints (IT/Admin)
+GET https://jubilant-garbanzo-r4rr96r99pr4fx794-8080.app.github.dev/api/complaints/assigned?username=it1

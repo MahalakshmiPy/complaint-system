@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - Complaint System</title>
+    <style>
+        body { background-color: #121212; color: white; font-family: Arial, sans-serif; }
+        .container { max-width: 400px; margin: 50px auto; }
+        input, button { width: 100%; padding: 10px; margin: 10px 0; }
+        .error { color: red; }
+        .success { color: green; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Register</h1>
+
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="register()">Register</button>
+
+    <p id="message"></p>
+
+    <p>Already have an account? <a href="login.html">Login here</a></p>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

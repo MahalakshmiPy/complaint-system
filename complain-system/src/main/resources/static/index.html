@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Complaint System</title>
+</head>
+<body>
+    <h1>Welcome to Online Complaint System</h1>
+
+    <h2>Register / Login</h2>
+    <form id="registerForm">
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <select id="role">
+            <option value="USER">User</option>
+            <option value="ADMIN">Admin</option>
+            <option value="IT">IT</option>
+        </select>
+        <button type="submit">Register</button>
+    </form>
+
+    <form id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Username" required>
+        <input type="password" id="loginPassword" placeholder="Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <h2>Submit Complaint</h2>
+    <form id="complaintForm">
+        <input type="text" id="complaintUsername" placeholder="Username" required>
+        <input type="text" id="category" placeholder="Category" required>
+        <input type="text" id="description" placeholder="Description" required>
+        <button type="submit">Submit Complaint</button>
+    </form>
+
+    <pre id="response"></pre>
+
+    <script>
+        const baseURL = "https://jubilant-garbanzo-r4rr96r99pr4fx794-8080.app.github.dev";
+
+        document.getElementById("registerForm").onsubmit = async (e) => {
+            e.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+            const role = document.getElementById("role").value;
+            const res = await fetch(`${baseURL}/api/auth/register`, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `username=${username}&password=${password}&role=${role}`
+            });
+            const text = await res.text();
+            document.getElementById("response").textContent = text;
+        };
+
+        document.getElementById("loginForm").onsubmit = async (e) => {
+            e.preventDefault();
+            const username = document.getElementById("loginUsername").value;
+            const password = document.getElementById("loginPassword").value;
+            const res = await fetch(`${baseURL}/api/auth/login`, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `username=${username}&password=${password}`
+            });
+            const text = await res.text();
+            document.getElementById("response").textContent = text;
+        };
+
+        document.getElementById("complaintForm").onsubmit = async (e) => {
+            e.preventDefault();
+            const username = document.getElementById("complaintUsername").value;
+            const category = document.getElementById("category").value;
+            const description = document.getElementById("description").value;
+            const res = await fetch(`${baseURL}/api/complaints/submit`, {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: `username=${username}&category=${category}&description=${description}`
+            });
+            const text = await res.text();
+            document.getElementById("response").textContent = text;
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Dashboard</title>
+    <style>
+        body { background-color: #121212; color: white; font-family: Arial, sans-serif; }
+        input, button, select { margin: 5px 0; padding: 5px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #333; padding: 10px; }
+        th { background-color: #1f1f1f; }
+    </style>
+</head>
+<body>
+
+<h1>User Dashboard</h1>
+<p id="welcome"></p>
+
+<h3>Submit Complaint</h3>
+<input type="text" id="category" placeholder="Category">
+<input type="text" id="description" placeholder="Description">
+<button onclick="submitComplaint()">Submit</button>
+
+<h3>Your Complaints</h3>
+<table id="complaintTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<script src="app.js"></script>
+</body>
+</html>
